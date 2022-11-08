@@ -9,5 +9,8 @@ export function fetchCountries(name) {
       }
       return response.json();
     })
-    .catch(Notify.failure('Oops, there is no country with that name'));
+    .catch(function (error) {
+      Notify.failure('Oops, there is no country with that name');
+      console.log('404:' + error);
+    });
 }
